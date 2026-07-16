@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Outfit', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  
+  --color-romantic-pink-light: #fff0f3;
+  --color-romantic-pink: #ff8da1;
+  --color-romantic-rose: #ff4d6d;
+  --color-romantic-rose-dark: #c9184a;
+  --color-romantic-purple: #8338ec;
+  --color-romantic-gold: #ffb703;
+  
+  --animate-heartbeat-slow: heartbeat-slow 1.5s ease-in-out infinite;
+  --animate-float-slow: float-slow 6s ease-in-out infinite;
+  --animate-spin-slow: spin-slow 12s linear infinite;
+  --animate-glow-pulse: glow-pulse 3s infinite;
+  --animate-petal-fall: petal-fall 10s linear infinite;
+  --animate-sparkle: sparkle 2s ease-in-out infinite;
+  --animate-shimmer: shimmer 2s linear infinite;
+}
+
+@keyframes heartbeat-slow {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  40% { transform: scale(1.05); }
+  60% { transform: scale(1.15); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 15px rgba(255, 77, 109, 0.4), inset 0 0 10px rgba(255, 77, 109, 0.2); }
+  50% { box-shadow: 0 0 30px rgba(255, 77, 109, 0.8), inset 0 0 20px rgba(255, 77, 109, 0.4); }
+}
+
+@keyframes petal-fall {
+  0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(110vh) translateX(100px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Custom styles for luxury Valentin theme */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background: radial-gradient(circle at center, #fff0f3 0%, #ffe3e8 50%, #ffd0da 100%);
+  overflow-x: hidden;
+  color: #5c0632;
+  min-height: 100vh;
+}
+
+body.dark-mode {
+  background: radial-gradient(circle at center, #1b0a1a 0%, #12030f 60%, #050005 100%);
+  color: #ffd0da;
+}
+
+/* Glassmorphism card utility */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(255, 77, 109, 0.15);
+}
+
+.dark-mode .glass-panel {
+  background: rgba(18, 3, 15, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 77, 109, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Premium text gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #ff4d6d 0%, #ff8da1 30%, #8338ec 70%, #ff4d6d 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+
+/* Scrollbar customized */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 77, 109, 0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 77, 109, 0.4);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 77, 109, 0.6);
+}
+
+/* Custom Cursor Trail Particles styling */
+.cursor-trail-heart {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  animation: cursor-float 1.2s ease-out forwards;
+}
+
+@keyframes cursor-float {
+  0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1; }
+  100% { transform: translate(-50%, -120px) scale(0) rotate(45deg); opacity: 0; }
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
